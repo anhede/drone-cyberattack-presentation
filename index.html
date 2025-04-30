@@ -1,40 +1,77 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+	<title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css">
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+	<style>
+		/* Add this to your stylesheet (or inside <style> in your head) */
+		.three-container {
+			width: 100%;
+			height: 500px;      /* ← make it non-zero! */
+			margin: 0 auto;
+			position: relative; /* if you ever want to absolutely position things inside */
+		}
+	</style>
+</head>
+<body>
+	<div class="reveal">
+		<div class="slides">
+			
+			<!-- <section>
+				<section>Vertical 1</section>
+				<section>Vertical 2</section>
+			</section>
+			<section>Slide 2</section> -->
+			
+			<section>
+				<h2>Cube Slide</h2>
+				<div class="three-container" data-scene="cube"></div>
+			</section>
+			
+			<section>Slide 1</section>
+
+			<section>
+				<h2>Sphere Slide</h2>
+				<div class="three-container" data-scene="sphere"></div>
+			</section>
+
+			<section>Slide 2</section>
+			  
+			<section>
+				<h2>Torus Slide</h2>
+				<div class="three-container" data-scene="torus"></div>
+			</section>
 		</div>
+	</div>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+	<!-- Reveal.js -->
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+	<!-- Three.js -->
+	<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
+	<script src="js/three-slide.js"></script>
+
+	<script>
+		Reveal.initialize({
+			hash: true,
+			progress: false,
+			navigationMode: 'linear',
+			autoAnimate: true,
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+		});
+	</script>
+</body>
 </html>
