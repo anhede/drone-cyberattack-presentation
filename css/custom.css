@@ -1,0 +1,54 @@
+/* in your stylesheet (e.g. style.css) */
+canvas {
+    display: block;
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+  }
+
+/* No caps */
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none;
+}
+
+.reveal {
+font-size: 150%;
+}
+
+/* Left aligned text in flex-items */
+.flex-item {
+  text-align: left;
+  padding: 0 1em;
+}
+
+/* alignments */
+.left-text {
+  text-align: left;
+}
+
+/* Powerpoint Style Classes */
+div.left-to-right-flex {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+div.half-width {
+  width: 45%;
+}
+
+/* Multi-Video-Container */
+/* All child divs are placed atop each other, with positioning relative to parent */
+.multi-video-container {
+  position: relative;
+}
+.multi-video-container > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+}

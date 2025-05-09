@@ -13,56 +13,245 @@
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css">
 
+	<!-- Custom css -->
+	<link rel="stylesheet" href="css/custom.css">
+	<!-- somewhere in your <head> or your custom stylesheet -->
 	<style>
-		/* Add this to your stylesheet (or inside <style> in your head) */
-		.three-container {
-			width: 100%;
-			height: 500px;      /* ← make it non-zero! */
-			margin: 0 auto;
-			position: relative; /* if you ever want to absolutely position things inside */
+		.preview-container {
+		position: relative;
+			display: inline-block; /* so width/height hug the video */
 		}
+		.preview-bubble {
+		position: absolute;
+		top: 300px;
+		right: 150px;
+		background-color: #E91E63;
+		color: #ffffff;
+		padding: 4px 8px;
+		border-radius: 12px;
+		font-size: 0.75em;
+		font-weight: bold;
+		transform: rotate(-15deg);
+		box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+		pointer-events: none; /* so it won’t block video clicks */
+		}
+		.left-align * {
+		  text-align: left !important;
+		}
+
 	</style>
+
 </head>
 <body>
 	<div class="reveal">
 		<div class="slides">
-			
-			<!-- <section>
-				<section>Vertical 1</section>
-				<section>Vertical 2</section>
-			</section>
-			<section>Slide 2</section> -->
-			
+			<!-- Introduction -->
 			<section>
-				<h2>Cube Slide</h2>
-				<div class="three-container" data-scene="cube"></div>
-			</section>
-			
-			<section>Slide 1</section>
-
-			<section>
-				<h2>Sphere Slide</h2>
-				<div class="three-container" data-scene="sphere"></div>
+				<h2>Cyber Attacks Against Autonomous Vehicles</h2>
+				<p>By <b>Josef Anhede</b> and Simon Grindberg</p>
+				<div class="preview-container fragment">
+				  <video loop muted playsinline
+						 style="max-width:60%; max-height:60%; object-fit:contain;">
+					<source src="media/long_run.mp4" type="video/mp4">
+					Your browser does not support the video tag.
+				  </video>
+				  <div class="preview-bubble">Preview!</div>
+				</div>
 			</section>
 
-			<section>Slide 2</section>
-			  
-			<section>
-				<h2>Torus Slide</h2>
-				<div class="three-container" data-scene="torus"></div>
+			<!-- "Top Gun" Movie -->
+			 <section>
+				<h2>Top Gun</h2>
+			 </section>
+
+			<!-- Why? Background and motivation -->
+			 <section>
+				<h2>Why?</h2>
+			 </section>
+
+			<!-- Method -->
+			 <section>
+				<!-- Overview! -->
+				<section>
+					<h2>Method</h2>
+				</section>
+				<!-- Drone -->
+				 <section>
+					<h2>Drone</h2>
+					<div class="left-to-right-flex">
+						<div class="half-width left-text">
+							<ul>
+								<li>Sensors<ul>
+									<li>GPS</li>
+									<li>IMU</li>
+									<li>Camera</li>
+								</ul></li>
+								<li>Four motors</li>
+								
+							</ul>
+						</div>
+						<div class="half-width left-text">
+							<img src="media/dronedir.png" alt="Drone" style="width: 100%; height: auto;">
+						</div>
+					</div>
+				 </section>
+				 <!-- Types of attacks -->
+				<section>
+					<h2>Types of attacks</h2>
+				</section>
+				<section>
+					<h2>Bias Attacks</h2>
+					<p>Adds constant bias $\,b\,$</p>
+					<div class="fragment fade-up">
+						$$
+						\begin{align*}
+							\tilde{x}&=x+b
+						\end{align*}
+						$$
+					</div>
+				</section>
+				<section>
+					<h2>Noise Attacks</h2>
+					<p>Adds white-noise $\,v_k \sim \mathcal{N}(0, \sigma^2)$</p>
+					<div class="fragment fade-up">
+						$$
+						\begin{align*}
+							\tilde{x}_k &= x_k+v_k
+						\end{align*}
+						$$
+					</div>
+				</section>
+				<section>
+					<h2>Delay Attacks</h2>
+					<p>Delays the signal by $\,\tau\,$ steps</p>
+					<div class="fragment fade-up">
+						$$
+						\begin{align*}
+							\tilde{x}_k = x_{k-\tau} \\
+						\end{align*}
+						$$
+					</div>
+				</section>
 			</section>
+			<!-- Results -->
+			 <section>
+				<section>
+					<h3>How do we quantify how "effective" an attack is?</h3>
+				</section>
+				<section>
+					<ul>
+						<li>Attack Success Rate</li>
+						<li>Impact on Vehicle Behavior</li>
+						<li>Detection and Mitigation</li>
+					</ul>
+				</section>
+				<section>
+					<h2>GPS Sensitivity</h2>
+				</section>
+			 </section>
+
+			 <!-- Discussion -->
+			  <section>
+				  <section>
+					 <h2>Why is the GPS so sensitive?</h2>
+					 <div class="left-align">
+						 <p>GPS is a critical component of autonomous vehicles, providing real-time location data. However, it is also vulnerable to various types of attacks, including jamming and spoofing.</p>
+						 <p>These attacks can disrupt the vehicle's navigation system, leading to potential accidents or loss of control.</p>
+					 </div>
+				  </section>
+				  <section>
+					 <h2>How can we improve GPS robustness?</h2>
+				  </section>
+				  <section>
+					<h2>EMA</h2>
+				  </section>
+			  </section>
+
+
+
+
+			<!-- OLD -->
+			<!-- Multiple videos on top of each other
+			 <section>
+				<h2>Crazyflie Drone</h2>
+				<div class="multi-video-container">
+					<div class="fragment">
+						<video>
+							<source src="media/long_run.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+					<div class="fragment">
+						<video>
+							<source src="media/video.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
+				</div>
+			 </section>			 
+			  -->
+		 
+			<!-- Types of Sensors
+			<section>
+				<section>
+					<h2>Types of sensors</h2>
+				</section>
+				<section>
+					<h3>Accelerometer</h3>
+					<div class="flex-container" style="display: flex; flex-direction: row;">
+						<div class="flex-item">
+							<p>Accelerometers measure the rate of change of velocity. They are used to detect acceleration, tilt, and vibration.</p>
+							<p>They are used in various applications such as smartphones, gaming controllers, and automotive systems.</p>
+						</div>
+						<div class="flex-item">
+							<canvas id="accelChart" class="chart"></canvas>
+						</div>
+				</section>
+				<section>
+					<h3>Gyroscope</h3>
+				</section>
+				<section>
+					<h3>GPS</h3>
+				</section>
+			</section>
+			 -->
+
 		</div>
 	</div>
 
 	<!-- Reveal.js -->
 	<script src="dist/reveal.js"></script>
+	<script src="plugin/math/math.js"></script>
 	<script src="plugin/notes/notes.js"></script>
 	<script src="plugin/markdown/markdown.js"></script>
 	<script src="plugin/highlight/highlight.js"></script>
 
 	<!-- Three.js -->
 	<script src="https://cdn.jsdelivr.net/npm/three@0.157.0/build/three.min.js"></script>
-	<script src="js/three-slide.js"></script>
+
+	<!-- Chart.js -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+	<!-- Graph logic -->
+	<script>
+	window.chartConfigs = {
+		accelChart: {
+		type: 'line',
+		data: {
+			labels: ['Jan', 'Feb', 'Mar', 'Apr'],
+			datasets: [{
+			label: 'Acceleration',
+			data: [0.1, 0.3, 0.2, 0.4],
+			borderColor: 'rgba(75, 192, 192, 1)',
+			tension: 0.4
+			}]
+		},
+		options: { responsive: false }
+		},
+	};
+	</script>
+	<script src="js/graph.js"></script>
+
 
 	<script>
 		Reveal.initialize({
@@ -70,7 +259,32 @@
 			progress: false,
 			navigationMode: 'linear',
 			autoAnimate: true,
-			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
+		});
+	</script>
+	<script>
+		Reveal.on('slidechanged', event => {
+			const video = document.querySelector('section video');
+			if (event.currentSlide.contains(video)) {
+				// Resume or restart
+				video.play();
+			} else {
+				// Pause when leaving slide
+				video.pause();
+			}
+		});
+		Reveal.on('slidechanged', event => {
+			const video = event.currentSlide.querySelector('video');
+			if (video) {
+				video.play();
+			}
+		});
+
+		Reveal.on('fragmentshown', event => {
+			const video = event.fragment.querySelector('video') || event.fragment.closest('section')?.querySelector('video');
+			if (video) {
+				video.play();
+			}
 		});
 	</script>
 </body>
