@@ -1,0 +1,11 @@
+{
+	"folders": [
+		{
+			"path": "../KEX/controllers/crazyflie_kex"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings": {}
+}

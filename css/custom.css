@@ -60,3 +60,7 @@ div.third-width {
   top: 0;
   left: 0;
 }
+.plot {
+  width: 600px;
+  height: 360px;
+}
