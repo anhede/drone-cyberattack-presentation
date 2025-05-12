@@ -62,11 +62,33 @@
 			<!-- "Top Gun" Movie -->
 			 <section>
 				<h2>Top Gun</h2>
+				<ul>
+					<li>3D Environment</li>
+					<li>Drone with motors, liftoff</li>
+					<li>Show motor plot</li>
+					<li>Show sensor plot</li>
+
+				</ul>
+			 </section>
+
+			<!-- What -->
+			 <section>
+				<h2>What?</h2>
+				<div class="left-align">
+					<ul>
+						<li>Simulate drones carrying out missions</li>
+						<li>Simulate attacks on drones</li>
+						<li>Analyze the impact of attacks</li>
+					</ul>
+				</div>
 			 </section>
 
 			<!-- Why? Background and motivation -->
 			 <section>
-				<h2>What and Why?</h2>
+				<h2>Why?</h2>
+				<h4 class="fragment fade-up">Use of drones in armed conflict has skyrocketed</h4>
+				<h4 class="fragment fade-up">Anti-drone-systems are becoming more sophisticated</h4>
+				<h4 class="fragment fade-up">Stop hijack or misuse of drones by malicious actors</h4>
 			 </section>
 
 			<!-- Method -->
@@ -142,83 +164,171 @@
 					</div>
 				</section>
 				<!-- Drone -->
-				 <section>
-					<h2>Drone</h2>
-					<div class="left-to-right-flex">
-						<div class="half-width left-text">
-							<ul>
-								<li>Sensors<ul>
-									<li>GPS</li>
-									<li>IMU</li>
-									<li>Camera</li>
-								</ul></li>
-								<li>Four motors</li>
-								
-							</ul>
-						</div>
-						<div class="half-width left-text">
-							<img src="media/dronedir.png" alt="Drone" style="width: 100%; height: auto;">
+				<section>
+				<div class="left-to-right-flex">
+					<div class="half-width">
+						<div class="left-text">
+							<h3>Motors</h4>
+							<b>GPS</b> gives position and velocity <br>
+							$\vec{p}=[x, y, z]$ <br>
+							$\vec{v}=[\.x, \.y, \.z]$
+							<br><br>
+
+							<b>Accelerometer</b> gives linear acceleration<br>
+							$\vec{a}=[a_1, a_2, a_3]$
+							<br><br>
+
+							<b>Inertial Unit</b> gives attitude<br>
+							$\vec{\Theta}=[\phi, \theta, \psi]$
+							<br><br>
+							
+							<b>Gyroscope</b> gives angular velocity<br>
+							$\vec{\omega}=[\omega_1, \omega_2, \omega_3]$
+							<br><br>
 						</div>
 					</div>
-				 </section>
+					<div class="half-width" style="display: flex; align-items: center; justify-content: center;">
+						<img src="media/drone-top-down-annotated.png" alt="Drone" style="width: 100%; height: auto;">
+					</div>
+				</div>
+				</section>
+				<section>
+				<div class="left-to-right-flex">
+					<div class="half-width">
+						<div class="left-text">
+							<h3>Sensors</h4>
+							<b>GPS</b> gives position and velocity <br>
+							$\vec{p}=[x, y, z]$ <br>
+							$\vec{v}=[\.x, \.y, \.z]$
+							<br><br>
+
+							<b>Accelerometer</b> gives linear acceleration<br>
+							$\vec{a}=[a_1, a_2, a_3]$
+							<br><br>
+
+							<b>Inertial Unit</b> gives attitude<br>
+							$\vec{\Theta}=[\phi, \theta, \psi]$
+							<br><br>
+							
+							<b>Gyroscope</b> gives angular velocity<br>
+							$\vec{\omega}=[\omega_1, \omega_2, \omega_3]$
+							<br><br>
+						</div>
+					</div>
+					<div class="half-width" style="display: flex; align-items: center; justify-content: center;">
+						<img src="media/drone-angled.png" alt="Drone" style="width: 100%; height: auto;">
+					</div>
+				</div>
+				</section>
+				</section>
+
 				 <!-- Types of attacks -->
 				<section>
-					<h2>Types of attacks</h2>
+					<section>
+						<h2>Types of attacks</h2>
+					</section>
+					<section>
+						<h2>Bias Attacks</h2>
+						<p>Adds constant bias $\,b\,$</p>
+						<div class="fragment fade-up">
+							$$
+							\begin{align*}
+								\tilde{x}&=x+b
+							\end{align*}
+							$$
+							<img src="media/plot-bias-attack.png" class="plot">
+						</div>
+					</section>
+					<section>
+						<h2>Noise Attacks</h2>
+						<p>Adds white-noise $\,v_k \sim \mathcal{N}(0, \sigma^2)$</p>
+						<div class="fragment fade-up">
+							$$
+							\begin{align*}
+								\tilde{x}_k &= x_k+v_k
+							\end{align*}
+							$$
+							<img src="media/plot-noise-attack.png" class="plot">
+						</div>
+					</section>
+					<section>
+						<h2>Delay Attacks</h2>
+						<p>Delays the signal by $\,\tau\,$ steps</p>
+						<div class="fragment fade-up">
+							$$
+							\begin{align*}
+							\tilde{x}_k = x_{k-\tau} \\
+							\end{align*}
+							$$
+							<img src="media/plot-delay-attack.png" class="plot">
+						</div>
+					</section>
 				</section>
-				<section>
-					<h2>Bias Attacks</h2>
-					<p>Adds constant bias $\,b\,$</p>
-					<div class="fragment fade-up">
-						$$
-						\begin{align*}
-							\tilde{x}&=x+b
-						\end{align*}
-						$$
-						<img src="media/plot-bias-attack.png" class="plot">
-					</div>
-				</section>
-				<section>
-					<h2>Noise Attacks</h2>
-					<p>Adds white-noise $\,v_k \sim \mathcal{N}(0, \sigma^2)$</p>
-					<div class="fragment fade-up">
-						$$
-						\begin{align*}
-							\tilde{x}_k &= x_k+v_k
-						\end{align*}
-						$$
-						<img src="media/plot-noise-attack.png" class="plot">
-					</div>
-				</section>
-				<section>
-					<h2>Delay Attacks</h2>
-					<p>Delays the signal by $\,\tau\,$ steps</p>
-					<div class="fragment fade-up">
-						$$
-						\begin{align*}
-						\tilde{x}_k = x_{k-\tau} \\
-						\end{align*}
-						$$
-						<img src="media/plot-delay-attack.png" class="plot">
-					</div>
-				</section>
-			</section>
-			<!-- Results -->
+			<!-- Results Method -->
 			 <section>
 				<section>
 					<h3>How do we quantify how "effective" an attack is?</h3>
 				</section>
-				<section>
-					<ul>
-						<li>Attack Success Rate</li>
-						<li>Impact on Vehicle Behavior</li>
-						<li>Detection and Mitigation</li>
-					</ul>
-				</section>
-				<section>
-					<h2>GPS Sensitivity</h2>
-				</section>
-			 </section>
-
+					<section>
+						<h2>Crash Rate</h2>
+						<p>Run 200 random missions, how many crashed?</p>
+						<div>
+							$$
+							\begin{align*}
+								z& < 5 \, \text{cm} \\
+							\end{align*}
+							$$
+							<img src="media/drone-crash.png" style="width: 50%;">
+						</div>
+					</section>
+					<section>
+						<h2>Delay</h2>
+						<p>Compare <span class="red">attack time</span> vs <span class="blue">optimal time</span></p>
+						<div>
+							<img src="media/drone-delay.png" style="width: 50%;">
+							$$
+							\begin{align*}
+								\text{Delay} &= t_{attack} - t_{optimal} \\
+							\end{align*}
+							$$
+						</div>
+					</section>
+					<section>
+						<h2>Deviation</h2>
+						<p>Compare <span class="red">attack route</span> vs <span class="blue">optimal route</span></p>
+						<div>
+							<img src="media/drone-delay.png" style="width: 50%;">
+							$$
+							\begin{align*}
+								&\text{Deviation} = \sqrt{ \frac{1}{N} \sum_{k=1}^N (\min_{j} \left\| \vec{p}_k - \vec{p}^*_j \right\|_2)^2 } \\
+								\approx &\;\text{Average distance to closest point on optimal path} \\
+							\end{align*}
+							$$
+						</div>					</section>
+			</section>
+			<!-- Results -->
+			<section>
+				<h2>MANY Results</h2>
+				<div class="left-to-right-flex">
+					<img src="media/full-crash-rate-results.png" class="third-width">
+					<img src="media/full-delay-results.png" class="third-width">
+					<img src="media/full-deviation-results.png" class="third-width">
+				</div>
+			</section>
+			<section data-auto-animate>
+				<h2>GPS Bias Attack</h2>
+				<div class="r-stack">
+					<img src="media/result-gps-bias-crash.png" class="plot">
+					<img src="media/result-gps-bias-deviation.png" class="plot fragment">
+				</div>
+			</section>
+			<section>
+				<h2>GPS Noise Attack</h2>
+				<div class="r-stack">
+					<img src="media/result-gps-noise-crash.png" class="plot">
+				</div>
+			</section>
+					
 			 <!-- Discussion -->
 			  <section>
 				  <section>
@@ -235,6 +345,13 @@
 					<h2>EMA</h2>
 				  </section>
 			  </section>
+
+			<!-- Extra -->
+
+			<section>
+				<h2>Full System</h2>
+				<img src="media/block-diagram.jpg">
+			</section>
 
 
 

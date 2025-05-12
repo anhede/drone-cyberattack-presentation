@@ -38,10 +38,10 @@ div.left-to-right-flex {
   justify-content: center;
   align-items: top;
 }
-div.half-width {
+.half-width {
   width: 45%;
 }
-div.third-width {
+.third-width {
   width: 30%;
 }
 
@@ -63,4 +63,12 @@ div.third-width {
 .plot {
   width: 600px;
   height: 360px;
+}
+
+/* Colors */
+span.red {
+  color: #E94F37;
+}
+span.blue {
+  color: #007ACC;
 }
