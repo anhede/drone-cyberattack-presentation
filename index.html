@@ -47,44 +47,43 @@
 		<div class="slides">
 			<!-- Introduction -->
 			<section>
-				<h2>Cyber Attacks Against Autonomous Vehicles</h2>
-				<p>By <b><span class="blue">Josef Anhede</span></b> and Simon Grindberg</p>
-				<!-- 
-				<div class="preview-container fragment">
-				  <video loop muted playsinline
-						 style="max-width:60%; max-height:60%; object-fit:contain;">
-					<source src="media/long_run.mp4" type="video/mp4">
-					Your browser does not support the video tag.
-				  </video>
-				  <div class="preview-bubble">Preview!</div>
-				</div>
-				 -->
+				<section>
+					<h2>Cyber Attacks Against Autonomous Vehicles</h2>
+					<p>By <b><span class="blue">Josef Anhede</span></b> and Simon Grindberg</p>
+					<!-- 
+					<div class="preview-container fragment">
+					<video loop muted playsinline
+							style="max-width:60%; max-height:60%; object-fit:contain;">
+						<source src="media/long_run.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					<div class="preview-bubble">Preview!</div>
+					</div>
+					-->
+				</section>
+				<section>
+					<video muted playsinline style="width: 100%;">
+						<source src="media/Top-Gun-Final-Render.mp4">
+						Your browser does not support the video tag.
+					</video>
+				</section>
 			</section>
-
-			<!-- "Top Gun" Movie -->
-			 <section>
-				<h2>Top Gun</h2>
-				<video muted playsinline style="width: 100%;" class="fragment">
-					<source src="media/Top-Gun-Final-Render.mp4">
-					Your browser does not support the video tag.
-				</video>
-			 </section>
 
 			<!-- What -->
 			 <section>
 				<h4>Simulate attacks against autonomous drones</h4>
-				<h4 class="fragment">Determine what sensors and attacks are most impactful</h4>
+				<h4 class="fragment">Determine impact of various attacks</h4>
 			 </section>
 
 			<!-- Why? Background and motivation -->
 			 <section>
 				<section>
 					<h2>Why?</h2>
-					<h4 class="fragment fade-up">Use of drones in armed conflict has skyrocketed</h4>
+					<h4 class="fragment fade-up">Use of drones in armed conflict is becoming more common</h4>
 					<h4 class="fragment fade-up">Anti-drone-systems are becoming more sophisticated</h4>
 				</section>
 				<section>
-					<h4>Analyzing attacks reveals which vulnerabilities need strengthening</h4>
+					<h4>Revealing flaws presents improvements</h4>
 				</section>
 			 </section>
 
@@ -331,7 +330,7 @@
 							$$
 							\begin{align*}
 								&\text{Deviation} = \sqrt{ \frac{1}{N} \sum_{k=1}^N (\min_{j} \left\| \vec{p}_k - \vec{p}^*_j \right\|_2)^2 } \\
-								\approx &\;\text{Average distance to closest point on optimal path} \\
+								\approx &\;\text{How far each point is from optimal path} \\
 							\end{align*}
 							$$
 						</div>					</section>
@@ -388,12 +387,12 @@
 			<!-- Conclusion -->
 			<section>
 				<h2>Conclusion</h2>
+				<h4 class="fragment fade-up">Different attacks are effective for different sensors</h4>
 				<h4 class="fragment fade-up">Most sensors are very sensitive to noise<br>
 					This stems from PID behaviour</h4>
-				<h4 class="fragment fade-up">Need for robust filters</h4>
-				<h4 class="fragment fade-up">GPS sensitive in comparison to accuracy</h4>
-				<h4 class="fragment fade-up">Attitude sensors are very resistant to bias and delay</h4>
-				<h4 class="fragment fade-up">Different attacks are effective for different sensors</h4>
+				<h4 class="fragment fade-up">Strong need for robust filters</h4>
+				<!-- <h4 class="fragment fade-up">GPS sensitive in comparison to accuracy</h4> -->
+				<!-- <h4 class="fragment fade-up">Attitude sensors are very resistant to bias and delay</h4> -->
 				<h4 class="fragment fade-up">Future work could investigate various filters</h4>
 
 				<br>
