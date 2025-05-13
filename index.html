@@ -48,7 +48,8 @@
 			<!-- Introduction -->
 			<section>
 				<h2>Cyber Attacks Against Autonomous Vehicles</h2>
-				<p>By <b>Josef Anhede</b> and Simon Grindberg</p>
+				<p>By <b><span class="blue">Josef Anhede</span></b> and Simon Grindberg</p>
+				<!-- 
 				<div class="preview-container fragment">
 				  <video loop muted playsinline
 						 style="max-width:60%; max-height:60%; object-fit:contain;">
@@ -57,38 +58,34 @@
 				  </video>
 				  <div class="preview-bubble">Preview!</div>
 				</div>
+				 -->
 			</section>
 
 			<!-- "Top Gun" Movie -->
 			 <section>
 				<h2>Top Gun</h2>
-				<ul>
-					<li>3D Environment</li>
-					<li>Drone with motors, liftoff</li>
-					<li>Show motor plot</li>
-					<li>Show sensor plot</li>
-
-				</ul>
+				<video muted playsinline style="width: 100%;" class="fragment">
+					<source src="media/Top-Gun-Final-Render.mp4">
+					Your browser does not support the video tag.
+				</video>
 			 </section>
 
 			<!-- What -->
 			 <section>
-				<h2>What?</h2>
-				<div class="left-align">
-					<ul>
-						<li>Simulate drones carrying out missions</li>
-						<li>Simulate attacks on drones</li>
-						<li>Analyze the impact of attacks</li>
-					</ul>
-				</div>
+				<h4>Simulate attacks against autonomous drones</h4>
+				<h4 class="fragment">Determine what sensors and attacks are most impactful</h4>
 			 </section>
 
 			<!-- Why? Background and motivation -->
 			 <section>
-				<h2>Why?</h2>
-				<h4 class="fragment fade-up">Use of drones in armed conflict has skyrocketed</h4>
-				<h4 class="fragment fade-up">Anti-drone-systems are becoming more sophisticated</h4>
-				<h4 class="fragment fade-up">Stop hijack or misuse of drones by malicious actors</h4>
+				<section>
+					<h2>Why?</h2>
+					<h4 class="fragment fade-up">Use of drones in armed conflict has skyrocketed</h4>
+					<h4 class="fragment fade-up">Anti-drone-systems are becoming more sophisticated</h4>
+				</section>
+				<section>
+					<h4>Analyzing attacks reveals which vulnerabilities need strengthening</h4>
+				</section>
 			 </section>
 
 			<!-- Method -->
@@ -126,7 +123,7 @@
 							<ul>
 								<li>Crazyflie 2.1</li>
 								<li>Virtual model</li>
-								<li>Sensors and Motors</li>
+								<li>Provided by company</li>
 								<img src="media/crazyflie.jpg">
 							</ul>
 						</div>
@@ -148,7 +145,7 @@
 							<ul>
 								<li>Crazyflie 2.1</li>
 								<li>Virtual model</li>
-								<li>Sensors and Motors</li>
+								<li>Provided by company</li>
 								<img src="media/crazyflie.jpg">
 							</ul>
 						</div>
@@ -171,8 +168,8 @@
 							<h3>Motors</h4>
 							M1 and M3 run clockwise<br>
 							M2 and M4 run counter-clockwise<br>
-							<br><br>
-							Vary thrust per motor to achieve roll, pitch and yaw
+							<br>
+							Full control in 3D space<br>
 						</div>
 					</div>
 					<div class="half-width" style="display: flex; align-items: center; justify-content: center;">
@@ -242,6 +239,9 @@
 				<section>
 					<h2>Functional Drone</h2>
 					<p>Using motors & sensors</p>
+					<video loop muted playsinline style="width: 100%;">
+						<source src="media/Top-Gun-Final-Render-Motor-Sensor.mp4" type="video/mp4">
+						Your browser does not support the video tag.
 				</section>
 
 				 <!-- Types of attacks -->
@@ -286,6 +286,14 @@
 						</div>
 					</section>
 				</section>
+				<section>
+					<h2>Working Attacks</h2>
+					<p>Destabilize and crash drone</p>
+					<video loop muted playsinline style="width: 100%;">
+						<source src="media/Top-Gun-Final-Render-Attack.mp4" type="video/mp4">
+						Your browser does not support the video tag.
+				</section>
+
 			<!-- Results Method -->
 			 <section>
 				<section>
@@ -330,14 +338,19 @@
 			</section>
 			<!-- Results -->
 			<section>
-				<h2>MANY Results</h2>
-				<div class="left-to-right-flex">
-					<img src="media/full-crash-rate-results.png" class="third-width">
-					<img src="media/full-delay-results.png" class="third-width">
-					<img src="media/full-deviation-results.png" class="third-width">
-				</div>
+				<section>
+					<h4>5 Sensors x 3 Attacks x 3 Metrics</h4>
+				</section>
+				<section >
+					<h2>MANY Results</h2>
+					<div class="left-to-right-flex">
+						<img src="media/full-crash-rate-results.png" class="third-width">
+						<img src="media/full-delay-results.png" class="third-width">
+						<img src="media/full-deviation-results.png" class="third-width">
+					</div>
+				</section>
 			</section>
-			<section data-auto-animate>
+			<section>
 				<h2>GPS Bias Attack</h2>
 				<div class="r-stack">
 					<img src="media/result-gps-bias-crash.png" class="plot">
@@ -345,7 +358,6 @@
 					<img src="media/plot-gps-bias-path.png" class="plot fragment">
 				</div>
 			</section>
-			<section>
 			<section>
 				<h2>GPS Noise Attack</h2>
 				<div class="r-stack">
@@ -358,7 +370,17 @@
 				</p>
 			</section>
 					
-			 <!-- Discussion -->
+			<!-- Conclusion -->
+			<section>
+				<h2>Conclusion</h2>
+				<ul>
+					<li>GPS very sensitive to noise</li>
+					<li>Need for robust filters</li>
+				</ul>
+			</section>
+
+			<!-- Discussion -->
+			<section>
 				  <section>
 					 <h2>Why is the GPS so sensitive?</h2>
 					 <h4>The need for filters</h4>
@@ -374,20 +396,17 @@
 				  </section>
 			  </section>
 
-			<!-- Conclusion -->
-			<section>
-				<h2>Conclusion</h2>
-				<ul>
-					<li>GPS very sensitive to noise</li>
-					<li>Need for robust filters</li>
-				</ul>
-			</section>
 
 			<!-- Extra -->
 
 			<section>
 				<h2>Full System</h2>
 				<img src="media/block-diagram.jpg">
+			</section>
+			
+			<section>
+				<h2>Axes</h2>
+				<img src="media/dronedir.png" style="width: 50%;">
 			</section>
 
 
