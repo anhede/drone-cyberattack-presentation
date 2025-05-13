@@ -209,9 +209,35 @@
 				</div>
 				</section>
 				<section>
-					<h2>Python Controller</h2>
-					<img src="media/block-diagram.jpg">
+				<h2>Python Controller</h2>
+				<p>How do we go from sensors to motor thrust?</p>
+				<div class="left-to-right-flex-center flex-gap">
+					<!-- Sensors -->
+					<span class="fragment" data-fragment-index="1">
+					$$\text{Sensors}$$
+					</span>
+					<!-- Pilot -->
+					<span class="fragment" data-fragment-index="3">
+					$$\xrightarrow[\text{Pilot}]{}
+					\begin{array}{r}
+						\text{Velocity } & v_x,v_y \\
+						\text{Yaw Rate } & \dot{\psi} \\
+						\text{Height } & z
+					\end{array}$$
+					</span>
+					<!-- Motor -->
+					<span class="fragment" data-fragment-index="5">
+					$$\xrightarrow[\text{PID}]{}
+					\begin{bmatrix}
+						m_1 \\[0.3em]
+						m_2 \\[0.3em]
+						m_3 \\[0.3em]
+						m_4
+					\end{bmatrix}$$
+					</span>
+				</div>
 				</section>
+
 				</section>
 				<section>
 					<h2>Functional Drone</h2>
@@ -316,31 +342,46 @@
 				<div class="r-stack">
 					<img src="media/result-gps-bias-crash.png" class="plot">
 					<img src="media/result-gps-bias-deviation.png" class="plot fragment">
+					<img src="media/plot-gps-bias-path.png" class="plot fragment">
 				</div>
 			</section>
+			<section>
 			<section>
 				<h2>GPS Noise Attack</h2>
 				<div class="r-stack">
 					<img src="media/result-gps-noise-crash.png" class="plot">
 				</div>
+				<p class="fragment fade-up">
+					90% at only 2 cm!
+					<br>
+					Modern GPS has accuracy of around 1m
+				</p>
 			</section>
 					
 			 <!-- Discussion -->
-			  <section>
 				  <section>
 					 <h2>Why is the GPS so sensitive?</h2>
-					 <div class="left-align">
-						 <p>GPS is a critical component of autonomous vehicles, providing real-time location data. However, it is also vulnerable to various types of attacks, including jamming and spoofing.</p>
-						 <p>These attacks can disrupt the vehicle's navigation system, leading to potential accidents or loss of control.</p>
-					 </div>
+					 <h4>The need for filters</h4>
 				  </section>
 				  <section>
-					 <h2>How can we improve GPS robustness?</h2>
-				  </section>
-				  <section>
-					<h2>EMA</h2>
+					<h2>Exponential Moving Average</h2>
+					$$
+					\begin{align*}
+						\tilde{x}_k &= \alpha x_k + (1-\alpha) \tilde{x}_{k-1} \\
+					\end{align*}
+					$$
+					<img src="media/result-gps-noise-crash-filter.png" class="plot">
 				  </section>
 			  </section>
+
+			<!-- Conclusion -->
+			<section>
+				<h2>Conclusion</h2>
+				<ul>
+					<li>GPS very sensitive to noise</li>
+					<li>Need for robust filters</li>
+				</ul>
+			</section>
 
 			<!-- Extra -->
 

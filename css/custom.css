@@ -38,6 +38,15 @@ div.left-to-right-flex {
   justify-content: center;
   align-items: top;
 }
+div.left-to-right-flex-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+div.flex-gap{
+  gap: 1em;
+}
 .half-width {
   width: 45%;
 }
@@ -62,7 +71,7 @@ div.left-to-right-flex {
 }
 .plot {
   width: 600px;
-  height: 360px;
+  height: auto;
 }
 
 /* Colors */
