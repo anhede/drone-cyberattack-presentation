@@ -11,7 +11,9 @@
 	<link rel="stylesheet" href="dist/theme/white.css">
 
 	<!-- Theme used for syntax highlighted code -->
-	<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	<!-- <link rel="stylesheet" href="plugin/highlight/monokai.css"> -->
+	<!-- <link rel="stylesheet" href="//unpkg.com/@catppuccin/highlightjs@1.0.1/css/catppuccin-mocha.css"> -->
+	<link rel="stylesheet" href="https://unpkg.com/highlightjs@9.16.2/styles/atom-one-dark.css">
 
 	<!-- Custom css -->
 	<link rel="stylesheet" href="css/custom.css">
@@ -45,439 +47,146 @@
 <body>
 	<div class="reveal">
 		<div class="slides">
-			<!-- Introduction -->
+
 			<section>
-				<section>
-					<h2>Cyber Attacks Against Autonomous Vehicles</h2>
-					<p>By <b><span class="blue">Josef Anhede</span></b> and Simon Grindberg</p>
-					<!-- 
-					<div class="preview-container fragment">
-					<video loop muted playsinline
-							style="max-width:60%; max-height:60%; object-fit:contain;">
-						<source src="media/long_run.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-					</video>
-					<div class="preview-bubble">Preview!</div>
-					</div>
-					-->
-				</section>
-				<section>
-					<video muted playsinline style="width: 100%;">
-						<source src="media/Top-Gun-Final-Render.mp4">
-						Your browser does not support the video tag.
-					</video>
-				</section>
+				<h2>Software Redundancy</h2>
+				<h3>EL2850</h3>
+				<h3><span class="blue">Josef Anhede</span></h3>
 			</section>
 
-			<!-- What -->
-			 <section>
-				<h4>Simulate attacks against autonomous drones</h4>
-				<h4 class="fragment">Determine impact of various attacks</h4>
-			 </section>
+			<section>
+				<h3>What is Software Redundancy?</h3>
+				<div class="left-to-right-flex">
+					<div class="half-width left-align">
+						<p style="margin-top: 1em;" class="fragment fade-left">Improve reliability in critical systems</p>
+						<p style="margin-top: 1em;" class="fragment fade-left">Software does not degrade with time. 
+							<br>- Can't swap-out "aging" software
+						</p>
+						<p style="margin-top: 1em;" class="fragment fade-left">Software can fail due to design flaws.
+							<br>- Can't add more "identical" software
+						</p>
+						<p style="margin-top: 1em;" class="fragment fade-left">Requires different approaches than hardware redundancy</p>
+					</div>
+			</section>
 
-			<!-- Why? Background and motivation -->
-			 <section>
-				<section>
-					<h2>Why?</h2>
-					<h4 class="fragment fade-up">Use of drones in armed conflict is becoming more common</h4>
-					<h4 class="fragment fade-up">Anti-drone-systems are becoming more sophisticated</h4>
-				</section>
-				<section>
-					<h4>Revealing flaws presents improvements</h4>
-				</section>
-			 </section>
-
-			<!-- Method -->
-			 <section>
-				<!-- Overview! -->
-				<section>
-					<h2>How?</h2>
-				</section>
-				<section data-auto-animate>
-					<div class="left-to-right-flex r-stretch top-padding">
-						<div class="third-width">
-							<h3>Webots</h3>
-							<ul>
-								<li>3D Scene</li>
-								<li>Physics Engine</li>
-								<li>Sensors and Motors</li>
-							</ul>
-							<img src="media/webots-interface.png">
-						</div>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<div class="left-to-right-flex r-stretch top-padding">
-						<div class="third-width">
-							<h3>Webots</h3>
-							<ul>
-								<li>3D Scene</li>
-								<li>Physics Engine</li>
-								<li>Sensors and Motors</li>
-							</ul>
-							<img src="media/webots-interface.png">
-						</div>
-						<div class="third-width">
-							<h3>Drone</h3>
-							<ul>
-								<li>Crazyflie 2.1</li>
-								<li>Virtual model</li>
-								<li>Provided by company</li>
-								<img src="media/crazyflie.jpg">
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section data-auto-animate>
-					<div class="left-to-right-flex r-stretch top-padding">
-						<div class="third-width">
-							<h3>Webots</h3>
-							<ul>
-								<li>3D Scene</li>
-								<li>Physics Engine</li>
-								<li>Sensors and Motors</li>
-							</ul>
-							<img src="media/webots-interface.png">
-						</div>
-						<div class="third-width">
-							<h3>Drone</h3>
-							<ul>
-								<li>Crazyflie 2.1</li>
-								<li>Virtual model</li>
-								<li>Provided by company</li>
-								<img src="media/crazyflie.jpg">
-							</ul>
-						</div>
-						<div class="third-width">
-							<h3>Controller</h3>
-							<ul>
-								<li>Reads sensors</li>
-								<li>PID</li>
-								<li>Outputs per motor force</li>
-							</ul>
-							<img src="media/python-logo.png">
-						</div>
-					</div>
-				</section>
-				<!-- Drone -->
-				<section>
+			<section>
 				<div class="left-to-right-flex">
 					<div class="half-width">
-						<div class="left-text">
-							<h3>Motors</h4>
-							M1 and M3 run clockwise<br>
-							M2 and M4 run counter-clockwise<br>
-							<br>
-							Full control in 3D space<br>
-						</div>
+						<h3>Single-version</h3>
+						<p class="fragment fade-right" data-fragment-index="1">
+							<span class="red">Only one</span> software component is developed.
+						</p>
 					</div>
-					<div class="half-width" style="display: flex; align-items: center; justify-content: center;">
-						<img src="media/drone-top-down-annotated.png" alt="Drone" style="width: 100%; height: auto;">
+					<div>
+						<h3> VS </h3>
 					</div>
-				</div>
-				</section>
-				<section>
-				<div class="left-to-right-flex">
 					<div class="half-width">
-						<div class="left-text">
-							<h3>Sensors</h4>
-							<b>GPS</b> gives position and velocity <br>
-							$\vec{p}=[x, y, z]$ <br>
-							$\vec{v}=[\.x, \.y, \.z]$
-							<br><br>
-
-							<b>Accelerometer</b> gives acceleration<br>
-							$\vec{a}=[\ddot x, \ddot y, \ddot z]$
-							<br><br>
-
-							<b>Inertial Unit</b> gives attitude<br>
-							$\vec{\Theta}=[\phi, \theta, \psi]$
-							<br><br>
-							
-							<b>Gyroscope</b> gives angular velocity<br>
-							$\vec{\omega}=[\.\phi, \.\theta, \.\psi]$
-							<br><br>
-						</div>
-					</div>
-					<div class="half-width" style="display: flex; align-items: center; justify-content: center;">
-						<img src="media/drone-angled.png" alt="Drone" style="width: 100%; height: auto;">
+						<h3>Multi-version</h3>
+						<p class="fragment fade-left" data-fragment-index="1">
+							<span class="blue">Multiple independently developed</span> software components
+						</p>
 					</div>
 				</div>
-				</section>
-				<section>
-				<h2>Python Controller</h2>
-				<p>How do we go from sensors to motor thrust?</p>
-				<div class="left-to-right-flex-center flex-gap">
-					<!-- Sensors -->
-					<span class="fragment" data-fragment-index="1">
-					$$\text{Sensors}$$
-					</span>
-					<!-- Pilot -->
-					<span class="fragment" data-fragment-index="3">
-					$$\xrightarrow[\text{Pilot}]{}
-					\begin{array}{r}
-						\text{Velocity } & v_x,v_y \\
-						\text{Yaw Rate } & \dot{\psi} \\
-						\text{Height } & z
-					\end{array}$$
-					</span>
-					<!-- Motor -->
-					<span class="fragment" data-fragment-index="5">
-					$$\xrightarrow[\text{PID}]{}
-					\begin{bmatrix}
-						m_1 \\[0.3em]
-						m_2 \\[0.3em]
-						m_3 \\[0.3em]
-						m_4
-					\end{bmatrix}$$
-					</span>
-				</div>
-				</section>
-
-				</section>
-				<section>
-					<h2>Functional Drone</h2>
-					<p>Using motors & sensors</p>
-					<video loop muted playsinline style="width: 100%;">
-						<source src="media/Top-Gun-Final-Render-Motor-Sensor.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-				</section>
-
-				 <!-- Types of attacks -->
-				<section>
-					<section>
-						<h2>Attacks</h2>
-					</section>
-					<section>
-						<h2>Bias Attacks</h2>
-						<p>Adds constant bias $\,b\,$</p>
-						<div class="fragment fade-up">
-							$$
-							\begin{align*}
-								\tilde{x}&=x+b
-							\end{align*}
-							$$
-							<img src="media/plot-bias-attack.png" class="plot">
-						</div>
-					</section>
-					<section>
-						<h2>Noise Attacks</h2>
-						<p>Adds white-noise $\,v_k \sim \mathcal{N}(0, \sigma^2)$</p>
-						<div class="fragment fade-up">
-							$$
-							\begin{align*}
-								\tilde{x}_k &= x_k+v_k
-							\end{align*}
-							$$
-							<img src="media/plot-noise-attack.png" class="plot">
-						</div>
-					</section>
-					<section>
-						<h2>Delay Attacks</h2>
-						<p>Delays the signal by $\,\tau\,$ steps</p>
-						<div class="fragment fade-up">
-							$$
-							\begin{align*}
-							\tilde{x}_k = x_{k-\tau} \\
-							\end{align*}
-							$$
-							<img src="media/plot-delay-attack.png" class="plot">
-						</div>
-					</section>
-				</section>
-				<section>
-					<h2>Working Attacks</h2>
-					<p>Destabilize and crash drone</p>
-					<video loop muted playsinline style="width: 100%;">
-						<source src="media/Top-Gun-Final-Render-Attack.mp4" type="video/mp4">
-						Your browser does not support the video tag.
-				</section>
-
-			<!-- Results Method -->
-			 <section>
-				<section>
-					<h3>How do we quantify how "effective" an attack is?</h3>
-				</section>
-					<section>
-						<h2>Crash Rate</h2>
-						<p>Run 200 random missions, how many crashed?</p>
-						<div>
-							$$
-							\begin{align*}
-								z& < 5 \, \text{cm} \\
-							\end{align*}
-							$$
-							<img src="media/drone-crash.png" style="width: 50%;">
-						</div>
-					</section>
-					<section>
-						<h2>Delay</h2>
-						<p>Compare <span class="red">attack time</span> vs <span class="blue">optimal time</span></p>
-						<div>
-							<img src="media/drone-delay.png" style="width: 50%;">
-							$$
-							\begin{align*}
-								\text{Delay} &= t_{attack} - t_{optimal} \\
-							\end{align*}
-							$$
-						</div>
-					</section>
-					<section>
-						<h2>Deviation</h2>
-						<p>Compare <span class="red">attack route</span> vs <span class="blue">optimal route</span></p>
-						<div>
-							<img src="media/drone-delay.png" style="width: 50%;">
-							$$
-							\begin{align*}
-								&\text{Deviation} = \sqrt{ \frac{1}{N} \sum_{k=1}^N (\min_{j} \left\| \vec{p}_k - \vec{p}^*_j \right\|_2)^2 } \\
-								\approx &\;\text{How far each point is from optimal path} \\
-							\end{align*}
-							$$
-						</div>					</section>
-			</section>
-			<!-- Results -->
-			<section>
-				<section>
-					<h4>5 Sensors x 3 Attacks x 3 Metrics</h4>
-				</section>
-				<section >
-					<h2>MANY Results</h2>
-					<div class="left-to-right-flex">
-						<img src="media/full-crash-rate-results.png" class="third-width">
-						<img src="media/full-delay-results.png" class="third-width">
-						<img src="media/full-deviation-results.png" class="third-width">
-					</div>
-				</section>
-			</section>
-			<section>
-				<h2>GPS Bias Attack</h2>
-				<div class="r-stack">
-					<img src="media/result-gps-bias-crash.png" class="plot">
-					<img src="media/result-gps-bias-deviation.png" class="plot fragment">
-					<img src="media/plot-gps-bias-path.png" class="plot fragment">
-				</div>
-			</section>
-			<section>
-				<h2>GPS Noise Attack</h2>
-				<div class="r-stack">
-					<img src="media/result-gps-noise-crash.png" class="plot">
-				</div>
-				<p>
-					90% at only 2 cm!
-					<br>
-					Modern GPS has accuracy of around 1m
-				</p>
-			</section>
-			<section>
-				<h2>Attitude Bias Attack</h2>
-				<img src="media/result-att-bias-crash.png" class="plot">
-				<p>Remarkably high bias before crash</p>
-			</section>
-			<section>
-				<h2>Attitude Noise Attack</h2>
-				<img src="media/result-att-noise-crash.png" class="plot">
-				<p>Very sensitive to noise!</p>
-			</section>
-			<section>
-				<h2>Attitude Delay Attack</h2>
-				<img src="media/result-att-delay-crash.png" class="plot">
-				<p>Very resistant to delay!</p>
-			</section>
-					
-			<!-- Conclusion -->
-			<section>
-				<h2>Conclusion</h2>
-				<h4 class="fragment fade-up">Different attacks are effective for different sensors</h4>
-				<h4 class="fragment fade-up">Most sensors are very sensitive to noise<br>
-					This stems from PID behaviour</h4>
-				<h4 class="fragment fade-up">Strong need for robust filters</h4>
-				<!-- <h4 class="fragment fade-up">GPS sensitive in comparison to accuracy</h4> -->
-				<!-- <h4 class="fragment fade-up">Attitude sensors are very resistant to bias and delay</h4> -->
-				<h4 class="fragment fade-up">Future work could investigate various filters</h4>
-
-				<br>
-				<h2 class="fragment fade-up">Thank you for listening!</h2>
-			</section>
-
-
-
-			<!-- Discussion -->
-			<section>
-				  <section>
-					 <h2>Why is the GPS so sensitive?</h2>
-					 <h4>The need for filters</h4>
-				  </section>
-				  <section>
-					<h2>Exponential Moving Average</h2>
-					$$
-					\begin{align*}
-						\tilde{x}_k &= \alpha x_k + (1-\alpha) \tilde{x}_{k-1} \\
-					\end{align*}
-					$$
-					<img src="media/result-gps-noise-crash-filter.png" class="plot">
-				  </section>
-			  </section>
-
-
-			<!-- Extra -->
-
-			<section>
-				<h2>Full Controller</h2>
-				<img src="media/block-diagram.jpg">
 			</section>
 			
 			<section>
-				<img src="media/dronedir.png" style="width: 50%;">
+				<section>
+					<h3>Checkpoint & Restart</h3>
+					<div class="r-stack">
+						<img src="media/checkpoint-basic.drawio.png" style="width: 70%;" class="fragment">
+						<img src="media/checkpoint-no-at.drawio.png" style="width: 70%;" class="fragment">
+						<img src="media/checkpoint-full.drawio.png" style="width: 70%;" class="fragment">
+					</div>
+				</section>
+
+				<section>
+					<h3>Design Faults</h3>
+					<p class="fragment fade-left">Not random, and not due to decay</p>
+					<p class="fragment fade-left">Always present, but only manifest under specific conditions</p>
+					<pre style="width: 35%; scale: 1.5; margin-top: 4em; margin-bottom: 4em;" class="fragment fade-left">
+						<code class="language-python" data-trim data-line-numbers="|3">def set_heater_power(current_temp, ambient_temp):
+		temp_difference = current_temp - ambient_temp
+		control_signal = 50 / temp_difference
+		return control_signal
+						</code>
+					</pre>
+					<p class="fragment fade-left">Checkpoint & Restart does not always protect against Design Faults</p>
+				</section>
 			</section>
 
 
 
-
-			<!-- OLD -->
-			<!-- Multiple videos on top of each other
-			 <section>
-				<h2>Crazyflie Drone</h2>
-				<div class="multi-video-container">
-					<div class="fragment">
-						<video>
-							<source src="media/long_run.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-					</div>
-					<div class="fragment">
-						<video>
-							<source src="media/video.mp4" type="video/mp4">
-							Your browser does not support the video tag.
-						</video>
-					</div>
-				</div>
-			 </section>			 
-			  -->
-		 
-			<!-- Types of Sensors
 			<section>
 				<section>
-					<h2>Types of sensors</h2>
+					<h3>N-Version Programming</h3>
+					<div class="r-stack">
+						<img src="media/N-version.drawio.png" style="width: 70%;">
+						<img src="media/self-checking.drawio.png" style="width: 70%;" class="fragment">
+					</div>
 				</section>
+
 				<section>
-					<h3>Accelerometer</h3>
-					<div class="flex-container" style="display: flex; flex-direction: row;">
-						<div class="flex-item">
-							<p>Accelerometers measure the rate of change of velocity. They are used to detect acceleration, tilt, and vibration.</p>
-							<p>They are used in various applications such as smartphones, gaming controllers, and automotive systems.</p>
+					<h3>Design Diversity</h3>
+					<div class="left-to-right-flex">
+						<div class="half-width left-align">
+							<p style="margin-top: 1em;" class="fragment fade-left">Different development teams, minimal communication</p>
+							<p style="margin-top: 1em;" class="fragment fade-left">Different programming languages, C/C++ and Rust<p>
+							<p style="margin-top: 1em;" class="fragment fade-left">Different algorithms<p>
 						</div>
-						<div class="flex-item">
-							<canvas id="accelChart" class="chart"></canvas>
-						</div>
+					</div>
+				</section>
+
+			</section>
+
+			<section>
+				<section>
+					<h3>Ariane 5</h3>
+					<p>European Space Launch Vehicle built in 1996</p>
+					<p>Failed on its maiden flight due to a software bug</p>
+					<pre style="width: 50%; scale: 1.5; margin-top: 8em; margin-bottom: 6em;" class="fragment fade-left">
+					<code class="language-ada" data-trim data-line-numbers="|4|6|10">with Ada.Text_IO; use Ada.Text_IO;
+	
+	procedure Ariane_Failure_Demo is
+	   Horizontal_Velocity_64 : Long_Float := 1.0E5;
+	   
+	   subtype Int16 is Integer range -32_768 .. 32_767;
+	   
+	   Horizontal_Velocity_16 : Int16;
+	begin
+	   Horizontal_Velocity_16 := Int16 (Horizontal_Velocity_64);
+	
+	   Put_Line ("Converted value: " & Int'Image(Horizontal_Velocity_16));
+	end Ariane_Failure_Demo;
+	
+					</code>
+					</pre>
+					<code class="fragment"> > raised CONSTRAINT_ERROR : ArianeDemo.adb:14 <span class="red">range check failed</span></code>
 				</section>
 				<section>
-					<h3>Gyroscope</h3>
-				</section>
-				<section>
-					<h3>GPS</h3>
+					<p>Luckily Ariane had a backup computer in place.</p>
+					<p class="fragment">However, it was running identical software...</p>
+					<p class="fragment">...and crashed for the same reason.</p>
+					<!-- Video of Ariane 5 launch -->
+					<div class="preview-container fragment">
+						<video width="600" controls>
+							<source src="media/ariane5crash.mp4" type="video/mp4">
+							Your browser does not support the video tag.
+						</video>
+					</div>
 				</section>
 			</section>
-			 -->
+
+			<section>
+				<h3>Lessons Learned</h3>
+				<div class="left-to-right-flex">
+					<div class="half-width left-align">
+						<p style="margin-top: 1em;" class="fragment fade-left">There are ways to add redundancy in software<p>
+						<p style="margin-top: 1em;" class="fragment fade-left">Single-version software cannot reliably protect against design faults<p>
+						<p style="margin-top: 1em;" class="fragment fade-left">Diversity is key for multi-version software<p>
+						<p style="margin-top: 1em;" class="fragment fade-left">While developers may sit far away from hardware, we must be aware of our contribution to safety and reliability<p>
+					</div>
+				</div>
+			</section>
 
 		</div>
 	</div>
@@ -523,31 +232,6 @@
 			navigationMode: 'linear',
 			autoAnimate: true,
 			plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath.KaTeX ]
-		});
-	</script>
-	<script>
-		Reveal.on('slidechanged', event => {
-			const video = document.querySelector('section video');
-			if (event.currentSlide.contains(video)) {
-				// Resume or restart
-				video.play();
-			} else {
-				// Pause when leaving slide
-				video.pause();
-			}
-		});
-		Reveal.on('slidechanged', event => {
-			const video = event.currentSlide.querySelector('video');
-			if (video) {
-				video.play();
-			}
-		});
-
-		Reveal.on('fragmentshown', event => {
-			const video = event.fragment.querySelector('video') || event.fragment.closest('section')?.querySelector('video');
-			if (video) {
-				video.play();
-			}
 		});
 	</script>
 </body>
